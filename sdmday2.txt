@@ -1,0 +1,330 @@
+1. package com.test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class OpenBrowser {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver dr =new ChromeDriver(); // to open chrome browser
+		WebDriver ff = new FirefoxDriver(); // to open Firefox brower
+		WebDriver ie = new InternetExplorerDriver(); // to open Internet Explorer
+		WebDriver hd = new EdgeDriver(); // to open EdgeDriver 
+		dr.get("https://www.google.com");
+		String s= "https://www.google.com";
+		dr.get(s);
+		dr.manage().window().maximize();
+		dr.manage().window().minimize();
+		Thread.sleep(4000);
+		System.out.println(dr.getTitle());
+		dr.close();
+		
+
+	}
+
+}
+-------------------------------------------------------------------------------------------
+2. package com.test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Task {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver dr= new ChromeDriver();
+		WebDriver ff= new FirefoxDriver();
+		dr.get("https://www.google.com");
+		
+		
+		ff.get("https://www.gmail.com");
+		
+	
+		dr.manage().window().maximize();
+		dr.manage().window().minimize();
+		System.out.println(dr.getTitle());
+		System.out.println(dr.getCurrentUrl());
+		String s= dr.getTitle();
+		String s1=dr.getCurrentUrl();
+		if(s.equalsIgnoreCase(s1))
+		{
+			System.out.println("passed");
+		}
+		else
+		{
+			System.out.println("fail");
+		}
+		ff.close();
+		
+		
+		
+		
+		
+
+	}
+
+}
+output:Google
+https://www.google.com/
+fail
+----------------------------------------------------------------------
+3. package com.test;
+
+
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class De {
+
+	public static void main(String[] args) throws InterruptedException
+	{
+		WebDriver dr=new ChromeDriver();
+		dr.get("https://www.google.com");
+		Thread.sleep(2000);
+		WebDriver fd=new FirefoxDriver();
+		fd.get("https://www.gmail.com");
+		Thread.sleep(4000);
+		
+		dr.navigate();
+		dr.navigate().back();
+		System.out.println(dr.manage().window().getSize());
+		dr.manage().window().maximize();
+	    dr.manage().window().minimize();
+	    Dimension d = new Dimension(500, 750);
+	    fd.manage().window().setSize(d);
+	    
+	  
+	    
+		
+		
+		
+		
+		dr.navigate().forward();
+		dr.navigate().refresh();
+		
+		
+		
+}
+}
+(1050, 700)
+2. package com.test;
+
+
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class De {
+
+	public static void main(String[] args) throws InterruptedException
+	{
+		WebDriver dr=new ChromeDriver();
+		dr.get("https://www.google.com");
+		Thread.sleep(2000);
+		WebDriver fd=new FirefoxDriver();
+		fd.get("https://www.gmail.com");
+		Thread.sleep(4000);
+		
+	//	dr.navigate();
+		dr.navigate().back();
+		System.out.println(dr.manage().window().getSize());
+		dr.manage().window().maximize();
+	    dr.manage().window().minimize();
+		/*
+		 * Dimension d = new Dimension(500, 750); fd.manage().window().setSize(d);
+		 * 
+		 */
+	    
+		
+		
+		
+		
+		
+		
+}
+}
+
+--------------------------------------------------------------------------------------
+4. package com.test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Web_Page {
+
+	 public static void main(String[] args) throws InterruptedException
+	 {
+		 WebDriver d= new ChromeDriver();
+		 d.get("https://practicetestautomation.com/practice-test-login/");
+		 d.manage().window().fullscreen();
+			
+			  WebElement we = d.findElement(By.id("username")); 
+			  we.click();
+			  we.sendKeys("asdad");
+			  we.clear(); 
+			  we.sendKeys("student"); 
+			  
+			  
+			  WebElement w1 = d.findElement(By.id("password"));
+			  w1.click();
+			  w1.sendKeys("asdad");
+			  w1.clear(); 
+			  w1.sendKeys("//Password123"); 
+			  
+//			  
+		  String s = we.getAttribute("value");
+//			  
+//			 System.out.println(s); System.out.println(we.isDisplayed());
+//			  System.out.println(we.isEnabled()); System.out.println(we.isSelected());
+//			 System.out.println(we.getLocation()); System.out.println(we.getSize());
+		  System.out.println(we.getTagName()); System.out.println(we.getText());
+//			 
+		 WebElement button = d.findElement(By.id("submit"));
+		 button.click();
+		
+		Thread.sleep(4000);
+		WebElement msg= d.findElement(By.id("error"));
+
+		Thread.sleep(4000);
+		System.out.println(msg.getText());
+		
+	
+		 
+		// d.findElement(By.id("username")).sendKeys("student");
+		// d.findElements(By.id("username")).clear();
+		// d.findElement(By.id("username")).click();
+		 
+		 
+		 //d.findElement(By.id("password")).sendKeys("Password123");
+	//	d.findElement(By.id("password")).clear();
+		// d.findElement(By.id("password")).click();
+		 
+		 
+		 
+		
+		 
+		 
+		 
+		 
+		 
+		
+		 
+
+		 }
+}
+
+output:
+asdadsdsad
+true
+true
+false
+(375, 542)
+(600, 48)
+input
+Your username is invalid!
+Your password is invalid!
+-------------------------------------------------------------
+correct code:
+package com.test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Web_Page {
+
+	 public static void main(String[] args) throws InterruptedException
+	 {
+		 WebDriver d= new ChromeDriver();
+		 d.get("https://practicetestautomation.com/practice-test-login");
+		 d.manage().window().fullscreen();
+			
+			  WebElement we = d.findElement(By.id("username")); 
+			  WebElement w1 = d.findElement(By.id("password"));
+			  WebElement w2 = d.findElement(By.id("submit"));
+			  we.click();
+			  we.sendKeys("kjbug");
+			  w1.sendKeys("Password123");
+			  w2.click();
+			  WebElement msg=d.findElement(By.id("error"));
+			  
+			  Thread.sleep(2000);
+			  System.out.println(msg.getText());  
+			  we.click();
+			  we.sendKeys("student");
+			  w1.sendKeys("hiii");
+			  w2.click();
+		
+			  Thread.sleep(2000);
+			  System.out.println(msg.getText());  
+			  
+//			  Thread.sleep(2000);
+//			  System.out.println(msg);  
+//			  
+//			  
+//			 
+//			  w1.click();
+//			  w1.sendKeys("asdad");
+//			  w1.clear(); 
+//			  w1.sendKeys("//Password123"); 
+//			  
+//			  Thread.sleep(2000);
+//		  String s = we.getAttribute("value");
+////			  
+////			 System.out.println(s); System.out.println(we.isDisplayed());
+////			  System.out.println(we.isEnabled()); System.out.println(we.isSelected());
+////			 System.out.println(we.getLocation()); System.out.println(we.getSize());
+//		  System.out.println(we.getTagName());
+//		  System.out.println(we.getText());
+////			 
+//		 WebElement button = d.findElement(By.id("submit"));
+//		 button.click();
+//		
+//		Thread.sleep(2000);
+//		WebElement msg= d.findElement(By.id("error"));
+//
+//		Thread.sleep(2000);
+//		System.out.println(msg.getText());
+//		System.out.println("pw is invalid");
+//		
+//	
+		 
+		// d.findElement(By.id("username")).sendKeys("student");
+		// d.findElements(By.id("username")).clear();
+		// d.findElement(By.id("username")).click();
+		 
+		 
+		 //d.findElement(By.id("password")).sendKeys("Password123");
+	//	d.findElement(By.id("password")).clear();
+		// d.findElement(By.id("password")).click();
+		 
+		 
+		 
+		
+		 
+		 
+		 
+		 
+		 
+		
+		 
+
+		 }
+}
+output:
+Your username is invalid!
+Your password is invalid!
+---------------------------------------------------------------------------------------
+
